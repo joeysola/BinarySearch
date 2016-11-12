@@ -12,7 +12,7 @@ package binarysearch;
  */
 public class BinarySearch {
 
-    public static int search(int[] a, int first, int last, int key){
+    public static <T extends Comparable> int search(T[] a, int first, int last, T key){
         
         int result = 0;
         
@@ -22,13 +22,13 @@ public class BinarySearch {
         else{
             int mid = (first + last)/2;
             
-            if (key == a[mid]){
+            if (key.compareTo(a[mid]) == 0){
                 result = mid;
             }
-            else if(key < a[mid]){
+            else if(key.compareTo(a[mid]) < 0){
                 result = search(a, first, mid - 1, key);
             }
-             else if (key > a[mid]){
+             else if (key.compareTo(a[mid]) > 0){
                 result = search(a, mid + 1, last, key);
             
      
